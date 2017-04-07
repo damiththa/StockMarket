@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en-us" ng-app="appStockMarket">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MDMS - Stock Market App</title>
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/picnic/6.3.2/picnic.min.css">
+</head>
+<body>
+    <div id="layout" class="pure-g" ng-controller="mainController">
+        
+        <!--ticker list-->
+        <div class="pure-u">
+            <!--looing over tickers-->
+            <article class="card" ng-repeat="ticker in myTickers">
+                <header>
+                    <h4>{{ticker}}</h4>
+                </header>
+            </article>
+        </div>
+
+        <!--ticket info-->
+        <div class="pure-u">
+            <div ng-view></div>
+        </div>
+    </div>
+
+<!--scripts-->
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="app.js"></script>
+<script src="Controllers/mainController.js"></script>
+<script src="Services/SecretsService.js"></script>
+<script src="Services/AirTableService.js"></script>
+<!--<script src="Services/StocksService.js"></script>-->
+<script src="Factories/StocksFactory.js"></script>
+</body>
+</html>
