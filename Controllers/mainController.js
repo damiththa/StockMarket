@@ -1,6 +1,6 @@
 (function () {
     "use strict";
-    var mainController = function ($scope, SecretsService, AirTableService, StocksFactory) {    
+    var mainController = function ($scope, SecretsService, AirTableService, StocksService, StocksFactory) {    
         var Secret_Retrun = SecretsService.getKeys();
         Secret_Retrun.then(function(data){
             $scope.Secrets = data;
@@ -17,10 +17,10 @@
             })
 
             //Get current Trading info.
-            var trading_PromiseReturn = StocksService.getThisStockInfo();
-            trading_PromiseReturn.then(function (data){
-                $scope.StockTradingInfo = data;
-                console.log($scope.StockTradingInfo);
+            var thisStockInfo_PromiseReturn = StocksService.getThisStockInfo($scope.AirTable_Secrets);
+            thisStockInfo_PromiseReturn.then(function (data){
+                $scope.thisStockInfo = data;
+                console.log($scope.thisStockInfo);
             })
 
         }).catch(function(){
@@ -28,7 +28,7 @@
         });    
     };
     
-    mainController.$inject = ['$scope', 'SecretsService', 'AirTableService', 'StocksFactory'];
+    mainController.$inject = ['$scope', 'SecretsService', 'AirTableService', 'StocksService', 'StocksFactory'];
     
     angular.module('appStockMarket')
         .controller('mainController', mainController);
