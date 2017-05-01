@@ -17,11 +17,11 @@
             })
 
             //Get current Trading info.
-            var thisStockInfo_PromiseReturn = StocksService.getThisStockInfo($scope.AirTable_Secrets);
+            var thisStockInfo_PromiseReturn = StocksService.getThisStockInfo('RB');
             thisStockInfo_PromiseReturn.then(function (data){
                 $scope.thisStockInfo = data;
                 console.log($scope.thisStockInfo);
-            })
+            })            
 
         }).catch(function(){
            console.log('error loading secrets'); 

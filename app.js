@@ -1,6 +1,6 @@
 (function () {
     "use strict";
-    var appStockMarket = angular.module('appStockMarket', ['ngRoute', 'ngSanitize']);
+    var appStockMarket = angular.module('appStockMarket', ['ngRoute']);
     
     appStockMarket.config(['$routeProvider', function($routeProvider){
 		$routeProvider
